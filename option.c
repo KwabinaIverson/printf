@@ -11,6 +11,8 @@ int (*get_spe(const char *format))(va_list)
 	specifier spec[] = {
 		{"c", fn_char},
 		{"s", fn_string},
+		{"i", fn_int},
+		{"d", fn_int},
 		{NULL, NULL}
 	};
 	int i = 0;

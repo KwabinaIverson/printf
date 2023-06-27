@@ -42,7 +42,11 @@ int _printf(const char *format, ...)
 				continue;
 			}
 			else
-				break;
+			{
+				count += write(STDOUT_FILENO, &format[i], 1);
+				i++;
+				continue;
+			}
 		}
 	}
 	va_end(var);

@@ -21,6 +21,8 @@ typedef struct spe
 int _printf(const char *format, ...);
 int fn_char(va_list);
 int fn_string(va_list);
+int fn_int(va_list var);
+int _putchar(char c);
 int (*get_spe(const char *format))(va_list);
 
 #endif
