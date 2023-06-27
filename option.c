@@ -2,7 +2,7 @@
 
 /**
  * get_spe - selects the correct specifier
- * @spe: the specifier
+ * @format: the character to compare
  * Return: a pointer to the function correstponding
  */
 

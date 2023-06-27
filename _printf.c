@@ -1,7 +1,4 @@
-#include <stdarg.h>
-#include <stdlib.h>
 #include "main.h"
-#include <unistd.h>
 
 /**
  * _printf - prints characters checking specifiers
@@ -24,19 +21,19 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			count += write(1, &format[i], 1);
+			count += write(STDOUT_FILENO, &format[i], 1);
 			i++;
 		}
 		if (format[i] == '%')
 		{
-			if (format[i+1] == '%')
+			if (format[i + 1] == '%')
 			{
 				i += 2;
-				count += write(1, "%%", 1);
+				count += write(STDOUT_FILENO, "%%", 1);
 				continue;
 			}
 
-			fn = get_spe(&format[i+1]);
+			fn = get_spe(&format[i + 1]);
 
 			if (fn != NULL)
 			{

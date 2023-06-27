@@ -9,7 +9,7 @@
 /**
  * struct spe - a struct spe
  * @spec: the specifiers
- * @f: associated functions
+ * @fn: associated functions
  */
 
 typedef struct spe
