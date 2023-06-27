@@ -33,6 +33,7 @@ int _printf(const char *format, ...)
 			{
 				i += 2;
 				count += write(1, "%%", 1);
+				continue;
 			}
 
 			fn = get_spe(&format[i+1]);
@@ -41,6 +42,7 @@ int _printf(const char *format, ...)
 			{
 				count += fn(var);
 				i += 2;
+				continue;
 			}
 			else
 				break;

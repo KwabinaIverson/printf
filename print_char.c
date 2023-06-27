@@ -11,12 +11,7 @@ int fn_char(va_list var)
 	int count = 0;
 	char c = va_arg(var, int);
 
-	if (c)
-	{
-		write(STDOUT_FILENO, &c, 1);
-		count++;
-		return (count);
-	}
-
-	return (1);
+	write(STDOUT_FILENO, &c, 1);
+	count++;
+	return (count);
 }

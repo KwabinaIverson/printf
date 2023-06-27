@@ -1,6 +1,4 @@
-#include <stdarg.h>
 #include "main.h"
-#include <unistd.h>
 
 /**
  * get_spe - selects the correct specifier
@@ -17,7 +15,7 @@ int (*get_spe(const char *format))(va_list)
 	};
 	int i = 0;
 
-	while (spec[i].spec != NULL && (*spec[i].spec != *format))
+	while (spec[i].spec != NULL && (*(spec[i].spec) != *format))
 		i++;
 	return (spec[i].fn);
 }

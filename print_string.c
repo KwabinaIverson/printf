@@ -1,6 +1,4 @@
-#include <stdarg.h>
 #include "main.h"
-#include <unistd.h>
 
 /**
  * fn_string - print string
@@ -11,16 +9,18 @@
 int fn_string(va_list var)
 {
 	char *s = va_arg(var, char *);
-	unsigned int i = 0;
+	unsigned int len = 0;
 	int count = 0;
 
 	if (s == NULL)
 		return (0);
 
-	while (s[i] != '\0')
+	while (s[len] != '\0')
 	{
+		write(STDOUT_FILENO, &s[len], 1);
 		count++;
-		write(1, &s[i], 1);
+		len++;
 	}
+
 	return (count);
 }
