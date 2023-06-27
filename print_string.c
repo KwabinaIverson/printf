@@ -20,7 +20,7 @@ int fn_string(va_list var)
 	while (s[i] != '\0')
 	{
 		count++;
-		write(STDOUT_FILENO, &s[i], 1);
+		write(1, &s[i], 1);
 	}
 	return (count);
 }

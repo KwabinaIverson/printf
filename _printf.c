@@ -9,10 +9,10 @@
  * Return: the number of characters printed
  */
 
-int _print(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list var;
-	int count = 0;
+	int count = 0, i = 0;
 	int (*fn)(va_list);
 
 
@@ -20,21 +20,31 @@ int _print(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	for (; format; format++)
+	while (format[i] != '\0')
 	{
-		if (*format != '%')
+		if (format[i] != '%')
 		{
-			count++;
-			write(STDOUT_FILENO, format, 1);
+			count += write(1, &format[i], 1);
+			i++;
 		}
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			fn = get_spe(format++);
+			if (format[i+1] == '%')
+			{
+				i += 2;
+				count += write(1, "%%", 1);
+			}
+
+			fn = get_spe(&format[i+1]);
+
 			if (fn != NULL)
+			{
 				count += fn(var);
+				i += 2;
+			}
+			else
+				break;
 		}
-		else
-			break;
 	}
 	va_end(var);
 	return (count);

@@ -13,7 +13,6 @@ int (*get_spe(const char *format))(va_list)
 	specifier spec[] = {
 		{"c", fn_char},
 		{"s", fn_string},
-		{"%", fn_percent},
 		{NULL, NULL}
 	};
 	int i = 0;
